@@ -1,4 +1,4 @@
-# setup file
+# setup file, nice visualization can be found here: - https://visualpde.com/nonlinear-physics/cahn-hilliard
 
 using Pkg
 Pkg.activate(@__DIR__)
@@ -81,7 +81,7 @@ function cahn_hilliard_1d(;N = 300 , L = 6.0 , dt = 0.001, T_end = 360.0, M = 1.
         phi = real.(ifft(phi_hat))
 
         # nonlinear term in position space
-        nonlinear = phi.^3 .- phi
+        nonlinear = phi.^3 #.- phi
 
         # nonlinear term in fourier space
         nonlinear_hat = fft(nonlinear)
